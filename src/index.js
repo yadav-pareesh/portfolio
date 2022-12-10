@@ -2,14 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import {
-  red,
-  teal,
-  blueGrey,
-  cyan,
-  indigo,
-  purple,
-} from "@mui/material/colors";
+import purple from "@mui/material/colors/purple";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
