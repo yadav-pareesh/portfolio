@@ -20,7 +20,7 @@ const items = [
     icon: <CableIcon color="disabled" sx={{ ...iconStyles }} />,
     title: "Costomer Relations",
     description:
-      " Content are writtern hereContent are writtern hereContent are writtern hereContent are writtern hereContent are writtern hereContent are writtern hereContent are writtern hereContent are writtern hereContent are writtern here",
+      "I can make a better project and I am sure you will like it. I am looking for an opportunity from you under which I can prove myself. I am sure you are looking for better and may give you best project.",
   },
   {
     icon: <GroupsIcon color="disabled" sx={{ ...iconStyles }} />,

@@ -103,17 +103,13 @@ export const Projects = () => {
             color="text.secondary"
             paragraph
           >
-            Hay buddy, All these awesome projects have capability to provide me
-            a good job. Do you think same? If yes then give me a simple and
-            gorgius job. One thing bro you don't have any other option, so give
-            me my job right now blody coder. All these world changing project
-            are coded by the greate PAREESH YADAV. let see these projects and
-            check the capability
+            Hay buddy, check out these amazing projects made by me and suggest
+            me to add something new. How much better can these projects be done?
+            give me your valuable ideas
           </Typography>
         </Container>
       </Box>
       <Container sx={{ py: 2 }} maxWidth="md">
-        {/* End hero unit */}
         <Grid container spacing={4}>
           {cards.map((card) => (
             <Grid item key={card.id} xs={12} sm={6} md={4} sx={{ my: "5%" }}>
