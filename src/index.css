@@ -36,3 +36,13 @@ code {
   margin-left: -16px;
   justify-content: space-evenly;
 }
+.css-i6s8oy {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+  justify-content: space-between;
+}
