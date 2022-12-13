@@ -1,4 +1,4 @@
-import * as React from "react";
+import { React, useState, useEffect } from "react";
 import {
   Avatar,
   Button,
@@ -10,17 +10,6 @@ import {
 } from "@mui/material";
 
 import EmailIcon from "@mui/icons-material/Email";
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  console.log({
-    name: data.get("name"),
-    email: data.get("email"),
-    mobile: data.get("mobile"),
-    company: data.get("company"),
-  });
-};
 
 const contactFields = [
   {
@@ -46,27 +35,68 @@ const contactFields = [
 ];
 
 const ContactUs = () => {
+  const [massage, setMassage] = useState();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    console.log({
+      name: data.get("name"),
+      email: data.get("email"),
+      mobile: data.get("mobile"),
+      company: data.get("company"),
+    });
+    setMassage(
+      "Hay " +
+        data.get("name") +
+        ", your contact details is recieved, we will contact you sonn."
+    );
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      setMassage("");
+    }, 10000);
+  }, [massage]);
+
   return (
     <Container component="main" maxWidth="xs">
       <Typography variant="h4" sx={{ my: 5 }}>
         -: Contact Details :-
       </Typography>
-      <Box sx={{ display: "flex" }}>
-        <Box>
-          <Typography sx={{ mb: 2 }} variant="h5">
-            Email:
-          </Typography>
-          <Typography variant="h5" sx={{ mx: 4 }}>
-            Mobile:
-          </Typography>
-        </Box>
-        <Box>
-          <Typography variant="h6" sx={{ mb: 2 }}>
-            pareeshyadav@gmail.com
-          </Typography>
-          <Typography variant="h6">+91 6260229239</Typography>
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Box sx={{ display: "flex" }}>
+          <Box>
+            <Typography sx={{ mb: 2 }} variant="h5">
+              Email:
+            </Typography>
+            <Typography variant="h5" sx={{ mx: 4 }}>
+              Mobile:
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              pareeshyadav@gmail.com
+            </Typography>
+            <Typography variant="h6">+91 6260229239</Typography>
+          </Box>
         </Box>
       </Box>
+      <Typography
+        id="massage"
+        variant="h5"
+        sx={{ color: "green", m: 5 }}
+        maxWidth="xs"
+      >
+        {massage}
+      </Typography>
       <Box sx={{ display: "flex" }}></Box>
       <CssBaseline />
       <Box
@@ -86,7 +116,7 @@ const ContactUs = () => {
         <Typography component="h1" variant="h5">
           Interact with us
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           {contactFields.map((field) => (
             <TextField
               key={field.name}
