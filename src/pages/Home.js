@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Box, Typography, Grid, Avatar } from "@mui/material";
+
 import bootsTrapLogo from "../images/bootsTrapLogo.png";
 import reactJsLogo from "../images/reactJsLogo.png";
 import sqlLogo from "../images/sqlLogo.svg";
@@ -12,6 +13,9 @@ import cLogo from "../images/cLogo.png";
 import phpLogo from "../images/phpLogo.png";
 import vercelLogo from "../images/vercelLogo.png";
 import gitHubLogo from "../images/gitHubLogo.png";
+import mongoDbLogo from "../images/mongoDbLogo.png";
+import expressLogo from "../images/expressLogo.png";
+import reactNativeLogo from "../images/reactNativeLogo.png";
 
 const skills = [
   {
@@ -86,18 +90,55 @@ const skills = [
     logo: vercelLogo,
     alt: "vercel",
   },
+  {
+    id: 13,
+    name: "MongoDB",
+    logo: mongoDbLogo,
+    alt: "mongodb",
+  },
+  {
+    id: 14,
+    name: "Express Js",
+    logo: expressLogo,
+    alt: "express",
+  },
+  {
+    id: 15,
+    name: "React Native",
+    logo: reactNativeLogo,
+    alt: "reactNative",
+  },
 ];
 
 const Home = () => {
   return (
     <Box sx={{ flexGrow: 1, my: 8 }}>
-      <Typography variant="h4" sx={{ my: 5 }}>
-        Familier with following technologies...
+      <Typography
+        sx={{
+          py: 4,
+          m: "auto",
+          maxWidth: 1024,
+          borderRadius: 4,
+          background: "#E8F3D6",
+          mx: 4,
+          my: 8,
+        }}
+        component="h1"
+        variant="h3"
+        color="text.primary"
+      >
+        Familier with following
       </Typography>
       <Grid
         container
         spacing={{ xs: 2, sm: 3, md: 4 }}
         columns={{ xs: 4, sm: 4, md: 12 }}
+        sx={{
+          background: "#E8F3D6",
+          maxWidth: 1024,
+          m: "auto",
+          borderRadius: 4,
+        }}
       >
         {skills.map((skill) => (
           <Grid
@@ -116,13 +157,14 @@ const Home = () => {
               alt={skill.alt}
               src={skill.logo}
               sx={{
+                p: 1,
                 width: 100,
                 height: 100,
                 borderRadius: 4,
                 alignSelf: "center",
               }}
             />
-            <Typography>{skill.name}</Typography>
+            <Typography sx={{ fontSize: 20, mt: 1 }}>{skill.name}</Typography>
           </Grid>
         ))}
       </Grid>

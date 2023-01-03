@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import purple from "@mui/material/colors/purple";
-import reportWebVitals from "./reportWebVitals";
+import { blue } from "@mui/material/colors";
+
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[800],
+      main: blue[900],
     },
     secondary: {
       main: "#263238",

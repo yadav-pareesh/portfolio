@@ -79,7 +79,6 @@ const NavBar = (props) => {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
             sx={{ display: { sm: "block" } }}
           >
             <img
@@ -88,18 +87,16 @@ const NavBar = (props) => {
               style={{ height: "40px", width: "40px", borderRadius: "20px" }}
             />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            PAREESH YADAV
-          </Typography>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>
                 <Link
-                  style={{ color: "#fff", textDecoration: "none" }}
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontSize: 16,
+                  }}
                   to={"/" + item}
                 >
                   {item}
@@ -129,7 +126,7 @@ const NavBar = (props) => {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ pt: 8 }}>
+      <Box component="main" sx={{ pt: 8, maxWidth: 1024 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<AboutUs />} />

@@ -15,12 +15,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import developerImage from "../images/pareeshYadav.jpg";
 
 const containerBoxStyles = {
-  background: "#F2E5E5",
-  p: 4,
+  background: "#E8F3D6",
+  pt: 4,
+  mt: 4,
 };
 
 const containerStyles = {
-  my: 5,
+  mt: 4,
   display: "flex",
   flex: 1,
   justifyContent: "space-between",
@@ -87,28 +88,34 @@ const Footer = () => {
             direction="column"
             spacing={1}
             sx={{
-              p: 6,
+              p: 4,
+              maxWidth: "30rem",
+              m: "auto",
+              width: 72,
             }}
           >
-            {socialLinks.map((socialLink) => (
-              <Button
-                key={socialLink.name}
-                variant={socialLink.variant}
-                startIcon={socialLink.icon}
+            {socialLinks.map((socialLink, index) => (
+              <Link
+                key={index}
+                variant="body2"
+                sx={{ py: 1, alignSelf: "flex-start" }}
+                underline="hover"
                 href={socialLink.link}
               >
                 {socialLink.name}
-              </Button>
+              </Link>
             ))}
           </Stack>
         </Grid>
         <Grid item xs={12} sm={8} md={4}>
-          <Typography variant="h6">Leave Your Valuable Feedback</Typography>
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Leave Your Valuable Feedback
+          </Typography>
           <Box
             component="form"
             onSubmit={handleSubmit}
             noValidate
-            sx={{ m: "auto", p: 4, maxWidth: "30rem" }}
+            sx={{ m: "auto", p: 2, maxWidth: "30rem" }}
           >
             <TextField
               margin="normal"
@@ -124,6 +131,7 @@ const Footer = () => {
               fullWidth
               multiline
               maxRows={3}
+              rows={2}
               name="massage"
               label="Leave Your Massage"
               type="text"
@@ -141,13 +149,10 @@ const Footer = () => {
             </Button>
           </Box>
         </Grid>
-      </Grid>{" "}
-      {"Copyright © "}
-      <Link color="inherit" href="#">
-        PAREESH YADAV
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      </Grid>
+      <Box sx={{ fontSize: 12, mt: 4, mb: 2 }}>
+        {"Copyright © " + new Date().getFullYear()}
+      </Box>
     </Box>
   );
 };

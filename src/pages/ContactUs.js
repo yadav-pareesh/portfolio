@@ -2,7 +2,6 @@ import { React, useState, useEffect } from "react";
 import {
   Avatar,
   Button,
-  CssBaseline,
   TextField,
   Box,
   Typography,
@@ -62,7 +61,7 @@ const ContactUs = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Typography variant="h4" sx={{ my: 5 }}>
-        -: Contact Details :-
+        Contact Details
       </Typography>
       <Box
         sx={{
@@ -97,8 +96,7 @@ const ContactUs = () => {
       >
         {massage}
       </Typography>
-      <Box sx={{ display: "flex" }}></Box>
-      <CssBaseline />
+
       <Box
         xs={12}
         sm={6}
@@ -108,6 +106,8 @@ const ContactUs = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          background: "#E8F3D6",
+          borderRadius: 4,
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
@@ -116,7 +116,12 @@ const ContactUs = () => {
         <Typography component="h1" variant="h5">
           Interact with us
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{ mt: 1, mx: 2 }}
+        >
           {contactFields.map((field) => (
             <TextField
               key={field.name}
