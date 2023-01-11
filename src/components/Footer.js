@@ -1,12 +1,16 @@
+import React, { useState, forwardRef } from "react";
 import {
   Button,
   Grid,
   Box,
   Stack,
+  Snackbar,
   TextField,
   Typography,
   Link,
+  Alert,
 } from "@mui/material";
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -55,16 +59,41 @@ const socialLinks = [
   },
 ];
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  console.log({
-    name: data.get("name"),
-    massage: data.get("massage"),
-  });
-};
-
 const Footer = () => {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [event, setEvent] = useState({ type: "", msg: "" });
+
+  const SnackbarAlert = forwardRef(function SnackbarAlert(props, ref) {
+    return <Alert elevation={12} ref={ref} {...props} />;
+  });
+
+  const handleClose = (reason) => {
+    if (reason === "clickaway") return;
+    setOpenSnackbar(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    const responce = { user: data.get("name"), massage: data.get("massage") };
+
+    if (
+      responce.user.trim().length !== 0 &&
+      responce.massage.trim().length !== 0
+    ) {
+      setOpenSnackbar(true);
+      setEvent({
+        type: "success",
+        msg: "Thanks! " + responce.user + " Your feedback is valuable for us",
+      });
+    } else {
+      setOpenSnackbar(true);
+      setEvent({ type: "error", msg: "name and massage must be field." });
+    }
+    console.log(responce);
+  };
+
   return (
     <Box sx={{ ...containerBoxStyles }}>
       <Grid
@@ -82,6 +111,9 @@ const Footer = () => {
           <Typography variant="h6">Pareesh Yadav</Typography>
           <Typography> (Developer)</Typography>
         </Grid>
+
+        {/* ..... social medea links are here..... */}
+
         <Grid item xs={12} sm={4} columns={{ xs: 4, sm: 12 }}>
           <Typography variant="h6">Media Links</Typography>
           <Stack
@@ -107,6 +139,9 @@ const Footer = () => {
             ))}
           </Stack>
         </Grid>
+
+        {/* ..... Feedback form contentainer is here ...... */}
+
         <Grid item xs={12} sm={8} md={4}>
           <Typography variant="h6" sx={{ mt: 2 }}>
             Leave Your Valuable Feedback
@@ -147,8 +182,21 @@ const Footer = () => {
               Send
             </Button>
           </Box>
+
+          <Snackbar
+            autoHideDuration={4000}
+            open={openSnackbar}
+            onClose={handleClose}
+          >
+            <SnackbarAlert onClose={handleClose} severity={event.type}>
+              {event.msg}
+            </SnackbarAlert>
+          </Snackbar>
         </Grid>
       </Grid>
+
+      {/*  ....... copyright claimed is here ....... */}
+
       <Box sx={{ fontSize: 12, mt: 4, mb: 2 }}>
         {"Copyright © " + new Date().getFullYear()}
       </Box>
