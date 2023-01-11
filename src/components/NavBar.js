@@ -15,6 +15,8 @@ import {
   Button,
 } from "@mui/material";
 
+import develeperLogo from "../images/pareeshYadav.jpg";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
@@ -35,7 +37,7 @@ const NavBar = (props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <img
-        src="https://scontent.fbom19-1.fna.fbcdn.net/v/t1.6435-9/104170622_892097661259588_3668544582747682168_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=19026a&_nc_ohc=eY5fSlb_OZwAX8AfDvz&tn=nn9ZjuXw56rPbWPF&_nc_ht=scontent.fbom19-1.fna&oh=00_AfAYalu_dldS2xaSwuviccu2DqSj6y1Bqhhl8h17gSUbLw&oe=63B7A523"
+        src="https://scontent.fbom19-1.fna.fbcdn.net/v/t1.6435-9/104170622_892097661259588_3668544582747682168_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=19026a&_nc_ohc=JgoARhiq2qAAX8BR-av&tn=nn9ZjuXw56rPbWPF&_nc_ht=scontent.fbom19-1.fna&oh=00_AfD8GeDWL1Hh77qeVaSCaPamzfuLg1LTsY1DKfpLHATfPQ&oe=63E63A23"
         alt="developer logo"
         style={{ height: "100px", width: "100px", borderRadius: "50px" }}
       />
@@ -82,7 +84,7 @@ const NavBar = (props) => {
             sx={{ display: { sm: "block" } }}
           >
             <img
-              src="https://scontent.fbom19-1.fna.fbcdn.net/v/t1.6435-9/104170622_892097661259588_3668544582747682168_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=19026a&_nc_ohc=eY5fSlb_OZwAX8AfDvz&tn=nn9ZjuXw56rPbWPF&_nc_ht=scontent.fbom19-1.fna&oh=00_AfAYalu_dldS2xaSwuviccu2DqSj6y1Bqhhl8h17gSUbLw&oe=63B7A523"
+              src="https://scontent.fbom19-1.fna.fbcdn.net/v/t1.6435-9/104170622_892097661259588_3668544582747682168_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=19026a&_nc_ohc=JgoARhiq2qAAX8BR-av&tn=nn9ZjuXw56rPbWPF&_nc_ht=scontent.fbom19-1.fna&oh=00_AfD8GeDWL1Hh77qeVaSCaPamzfuLg1LTsY1DKfpLHATfPQ&oe=63E63A23"
               alt="devloper logo"
               style={{ height: "40px", width: "40px", borderRadius: "20px" }}
             />

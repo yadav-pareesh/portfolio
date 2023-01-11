@@ -130,8 +130,7 @@ const Footer = () => {
               margin="normal"
               fullWidth
               multiline
-              maxRows={3}
-              rows={2}
+              rows={3}
               name="massage"
               label="Leave Your Massage"
               type="text"
